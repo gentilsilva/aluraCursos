@@ -1,0 +1,33 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    let canvas = document.querySelector("canvas");
+    let pincel = canvas.getContext("2d");
+
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    let desenha = false;
+
+    canvas.onmousemove = function(evento) {
+      if(desenha) {
+        let x = evento.pageX - canvas.offsetLeft;
+        let y = evento.pageY - canvas.offsetTop;
+
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * Math.PI);
+        pincel.fill();
+      }
+      console.log(x + "," + y);
+    }
+
+    canvas.onmousedown = function() {
+        desenha = true;
+    }
+
+    canvas.onmouseup = function() {
+        desenha = false;
+    }
+
+</script>
