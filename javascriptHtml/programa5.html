@@ -1,0 +1,62 @@
+<canvas width="600" height="400"></canvas>
+
+
+<script>
+    let canvas = document.querySelector("canvas");
+    let pincel = canvas.getContext("2d");
+
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    let raio = 10;
+    let xAleatorio;
+    let yAleatorio;
+
+    function desenhaCirculo(eixoX, eixoY, raio, cor) {
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(eixoX, eixoY, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaCanvas() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    function desenhaAlvo(eixoX, eixoY) {
+        desenhaCirculo(eixoX, eixoY, raio + 20, "red");
+        desenhaCirculo(eixoX, eixoY, raio + 10, "white");
+        desenhaCirculo(eixoX, eixoY, raio, "red");
+    }
+
+    function sorteiaPosicao(maximo) {
+        return Math.floor(Math.random() * maximo)
+    }
+
+    function atualizaTela() {
+        limpaCanvas();
+        xAleatorio = sorteiaPosicao(600);
+        yAleatorio = sorteiaPosicao(500);
+        desenhaAlvo(xAleatorio, yAleatorio);
+    }
+
+    setInterval(atualizaTela, 1000);
+
+    function dispara(evento) {
+        let eixoX = evento.pageX - canvas.offsetLeft;
+        let eixoY = evento.pageY - canvas.offsetTop;
+        console.log(eixoX);
+        console.log(eixoY);
+
+        if((eixoX > xAleatorio - raio)
+        && (eixoX < xAleatorio + raio) 
+        && (eixoY > yAleatorio - raio)
+        && (eixoY < yAleatorio + raio)) {
+            alert('Acertou!');
+        }
+    }
+
+    canvas.onclick = dispara;
+
+
+</script>

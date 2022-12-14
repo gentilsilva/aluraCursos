@@ -1,0 +1,44 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    let canvas = document.querySelector("canvas");
+    let pincel = canvas.getContext("2d");
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(eixoX, eixoY, raio) {
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(eixoX, eixoY, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaCanvas() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+
+    function exibeMensagemnoConsole() {
+        console.log("Chamei função");
+    }
+
+    let eixoX = 300;
+    let raio = 20;
+    let defineRaio = 1;
+    function atualizaTela() {
+        limpaCanvas();
+        if(raio > 30) {
+            defineRaio = -1;
+        } else if(raio < 20) {
+            defineRaio = 1;
+        }
+        desenhaCirculo(eixoX, 200, raio);
+        raio+= defineRaio;
+        eixoX++;
+    }
+
+    setInterval(atualizaTela, 10);   
+    
+
+</script>

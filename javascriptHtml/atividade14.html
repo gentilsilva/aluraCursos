@@ -1,0 +1,79 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    let canvas = document.querySelector("canvas");
+    let pincel = canvas.getContext("2d");
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(eixoX, eixoY, raio) {
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(eixoX, eixoY, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaCanvas() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+
+    function exibeMensagemnoConsole() {
+        console.log("Chamei função");
+    }
+
+    let eixoX = 20;
+    let sentido = 1;
+    function atualizaTela() {
+        limpaCanvas();
+        if(eixoX > 580) {
+            sentido = -1;
+        } else if(eixoX < 20) {
+            sentido = 1;
+        }
+        desenhaCirculo(eixoX, 20, 10);
+        eixoX+= sentido;
+    }
+
+
+    // Opção mais feia!!!!
+    // let xCrescente = 20
+    // let xDecrescente = 580;
+    // let direcao = 0;
+    // function atualizaTelaPositivo() {
+    //     limpaCanvas();
+    //     desenhaCirculo(xCrescente, 20, 10);
+    //     xCrescente++;
+    //     // console.log(xCrescente);
+    //     if(xCrescente == 580) {
+    //         xCrescente = 20;
+    //         direcao = 1;
+    //     }
+    // }
+
+    // function atualizaTelaNegativo() {
+    //     limpaCanvas();
+    //     desenhaCirculo(xDecrescente, 20, 10);
+    //     xDecrescente--;
+    //     // console.log(xDecrescente);
+    //     if(xDecrescente == 20) {
+    //         xDecrescente = 580;
+    //         direcao = 0;
+    //     }
+    // }
+
+    // function atualizaTela() {
+    //     if(direcao == 0) {
+    //         atualizaTelaPositivo();
+    //     } else {
+    //         atualizaTelaNegativo();
+    //     }
+    // }
+
+    setInterval(atualizaTela, 10);
+
+    
+    
+
+</script>
