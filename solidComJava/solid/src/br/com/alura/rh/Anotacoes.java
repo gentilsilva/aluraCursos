@@ -59,5 +59,59 @@ public class Anotacoes {
 	 * 		Devemos controlar o nível de acoplamento na nossa aplicação
 	 * 
 	 */
+	
+	/*
+	 * Princípios do S.O.L.I.D
+	 */
+	
+	/*
+	 * Single responsibility principle  [s] (princípio da responsábilidade única) * Foca em coesão
+	 * Just because you can, doesn't mean you should (Só porque você pode, não significa que você deveria)
+	 * 
+	 * "Uma classe deveria ter apenas um único motivo para mudar"
+	 * -- Robert(Uncle Bob) Martin
+	 * 
+	 * Classes deveriam ter somente uma única responsábilidade.
+	 * 
+	 */
+	
+	/*
+	 * Open closed principle [o] (princípio do aberto fechado)
+	 * Open chest surgery is not needed when putting on a coat
+	 * 
+	 * "Entidades de software (classes, módulos, funções, etc.) devem estar abertas para extensão, porém fechadas para modificação"
+	 * -- Bertrand Meyer
+	 * 
+	 * Se precisa adicionar uma nova lógica/regra de negócio, que faça isso em uma nova classe não modificando a já existente.
+	 * 
+	 */
+	
+	/*
+	 * Liskov substittution principle [l] (princípio da substituição de Liskov)
+	 * If it looks like a duck, quacks like a duck, but needs batteries - you probably have the wrong abstraction
+	 * 
+	 * "Se q(x) é uma propriedade demonstrável dos objetos x de tipo T, então q(y) deve ser verdadeiro para objetos y do tipo S, onde S é subtipo de T
+	 * -- Bárbara Liskov
+	 * 
+	 * Toda classe derivada podem ser substituidas por suas classes base e que as classes base podem ser substituídas por qualuqer uma das suas subclasses.
+	 * Favorecer a composição em detrimento da herança.
+	 * 
+	 */
+	
+	/*
+	 * Interface segregation principle [i] (princípio da segregação de interfaces)
+	 * You want me to plug this in, where?
+	 * 
+	 * "Uma classe não deveria ser forçada a depender de métodos que não utilizará"
+	 * -- Robert (Uncle Bob) Martin
+	 */
+	
+	/*
+	 * Dependency inversion principle [d] (princípio da inversão de dependencia)
+	 * would you solder a lamp directly to the electrical wiring in a wall?
+	 * 
+	 * "Abstrações não devem depender de implementações. Implementações devem depender de abstrações.
+	 * -- Robert (Uncle Bob) Martin
+	 */
 
 }
